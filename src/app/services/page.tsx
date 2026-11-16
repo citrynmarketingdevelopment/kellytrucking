@@ -1,9 +1,11 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
+import { StructuredData } from '@/components/structured-data';
 import Image from 'next/image';
 import { ContactBanner, ServicePanel } from '@/components/shared';
-export const metadata: Metadata = { title: 'Material Supply, Hauling & Site Services', description: 'Source dirt, clean fill, rock, gravel, sand, and asphalt. Kelly Trucking coordinates material delivery, dump-truck hauling, cut and fill, and site preparation.' };
+export const metadata = pageMetadata('/services/');
 export default function Services() {
   return <>
+    <StructuredData path="/services/" />
     <section className="page-intro"><h1>Our Services.</h1><p>Kelly Trucking supplies materials and dump-truck hauling for construction, landscaping, and site work. Alongside sister company Bakersfield Dirt, we help projects across Kern County and beyond source, import, and export what the job needs.</p></section>
     <div className="services-wrap"><ServicePanel /></div>
     <section className="supply-section"><div><h2>Materials<br />We Supply.</h2><ul className="materials-list">{['Dirt & clean fill', 'Rock & base rock', 'Gravel', 'Sand', 'Asphalt'].map(item => <li key={item}>{item}</li>)}</ul></div><div><p>Order materials for construction, landscaping, gardening, and grading. Share the type, quantity, specifications, and destination so we can discuss supply, delivery, and pricing.</p><p>Need material taken away? We also coordinate export hauling for excess dirt and debris, matching your job with receiving and disposal locations.</p><Image src="/photos/material-detail.webp" alt="Construction material being delivered at a jobsite" width={900} height={600} sizes="(max-width: 900px) 100vw, 50vw" /></div></section>
